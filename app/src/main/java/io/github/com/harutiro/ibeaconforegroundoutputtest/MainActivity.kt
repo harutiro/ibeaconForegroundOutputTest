@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        //ビーコンの送信
+        //サービスの開始
         binding.ibeeconStartButton.setOnClickListener {
             //intentのインスタンス化
             val intent = Intent(this, ForegroundIbeaconOutputServise::class.java)
@@ -65,8 +65,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //サービスを止める。
         binding.ibeaconStopButton.setOnClickListener {
-            //サービスを止める。
             val targetIntent = Intent(this, ForegroundIbeaconOutputServise::class.java)
             stopService(targetIntent)
         }
