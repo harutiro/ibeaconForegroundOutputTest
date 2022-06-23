@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("MINOR",binding.minorEditTextbox.text.toString())
 
             //サービスの開始
+            //パーミッションの確認をする。
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && EasyPermissions.hasPermissions(this, *permissions)) {
                 startForegroundService(intent)
             }
