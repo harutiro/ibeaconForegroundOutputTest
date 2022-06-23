@@ -48,18 +48,24 @@ class MainActivity : AppCompatActivity() {
             EasyPermissions.requestPermissions(this, "パーミッションに関する説明", PERMISSION_REQUEST_CODE, *permissions)
         }
 
+
+        //ビーコンの送信
         binding.ibeeconStartButton.setOnClickListener {
+            //intentのインスタンス化
             val intent = Intent(this, ForegroundIbeaconOutputServise::class.java)
+            //値をintentした時に受け渡しをする用
             intent.putExtra("UUID",binding.uuidEditTextbox.text.toString())
             intent.putExtra("MAJOR",binding.majarEditTextbox.text.toString())
             intent.putExtra("MINOR",binding.minorEditTextbox.text.toString())
 
+            //サービスの開始
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && EasyPermissions.hasPermissions(this, *permissions)) {
                 startForegroundService(intent)
             }
         }
 
         binding.ibeaconStopButton.setOnClickListener {
+            //サービスを止める。
             val targetIntent = Intent(this, ForegroundIbeaconOutputServise::class.java)
             stopService(targetIntent)
         }

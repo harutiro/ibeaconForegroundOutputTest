@@ -98,15 +98,12 @@ class ForegroundIbeaconOutputServise : Service() {
         return START_STICKY
     }
 
+    //ライフサイクルで、終了するタイミング。
     override fun onDestroy() {
         super.onDestroy()
+
+        //サービスが止まる時に、ビーコンも止まるようにする。
         beaconTransmitter.stopAdvertising()
-
-    }
-
-    override fun stopService(name: Intent?): Boolean {
-        return super.stopService(name)
-
 
     }
 }
