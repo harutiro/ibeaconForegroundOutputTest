@@ -19,8 +19,7 @@ class MainActivity : AppCompatActivity() {
     private val PERMISSION_REQUEST_CODE = 1
 
 
-    //許可して欲しいパーミッションの記載、
-    //Android１２以上ではBlueToothの新しいパーミッションを追加する。
+
 
     /*
     *
@@ -29,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     *
      */
 
+    //許可して欲しいパーミッションの記載、
+    //Android１２以上ではBlueToothの新しいパーミッションを追加する。
     val permissions = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
         arrayOf(
             Manifest.permission.ACCESS_COARSE_LOCATION,
