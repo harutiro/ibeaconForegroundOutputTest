@@ -34,6 +34,13 @@ class ForegroundIbeaconOutputServise : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         Log.i("Service","onStartCommand called")
 
+        /*
+        *
+        *   通知に関する記事
+        * https://oldbigbuddha.dev/posts/android-notification-tutorial
+        *
+         */
+
         //1．通知領域タップで戻ってくる先のActivity
         val openIntent = Intent(this, MainActivity::class.java).let {
             PendingIntent.getActivity(this, 0, it, PendingIntent.FLAG_IMMUTABLE)

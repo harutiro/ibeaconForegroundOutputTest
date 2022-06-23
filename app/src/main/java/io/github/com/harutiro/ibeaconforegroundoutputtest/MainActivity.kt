@@ -21,6 +21,14 @@ class MainActivity : AppCompatActivity() {
 
     //許可して欲しいパーミッションの記載、
     //Android１２以上ではBlueToothの新しいパーミッションを追加する。
+
+    /*
+    *
+    *パーミッションに関する記事
+    * https://qiita.com/kaleidot725/items/fa31476d7b7076265b3d
+    *
+     */
+
     val permissions = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
         arrayOf(
             Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -48,6 +56,12 @@ class MainActivity : AppCompatActivity() {
             EasyPermissions.requestPermissions(this, "パーミッションに関する説明", PERMISSION_REQUEST_CODE, *permissions)
         }
 
+        /*
+        *
+        * フォアグラウンドサービスに関する記事
+        * https://unluckysystems.com/%E3%83%90%E3%83%83%E3%82%AF%E3%82%B0%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%89%E3%81%A7%E5%8B%95%E4%BD%9C%E3%81%95%E3%81%9B%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E3%83%95%E3%82%A9%E3%82%A2%E3%82%B0%E3%83%A9/
+        *
+         */
 
         //サービスの開始
         binding.ibeeconStartButton.setOnClickListener {
