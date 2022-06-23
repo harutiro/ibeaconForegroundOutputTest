@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="stop"
-            app:layout_constraintBottom_toTopOf="@+id/state_check_button"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ibeecon_start_button"
             app:layout_constraintTop_toBottomOf="@+id/minor_edit_textbox" />
@@ -67,26 +67,5 @@
             app:layout_constraintEnd_toStartOf="@+id/ibeacon_stop_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ibeacon_stop_button" />
-
-        <Button
-            android:id="@+id/state_check_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="check"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ibeecon_start_button" />
-
-        <TextView
-            android:id="@+id/state_textbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="電波出てない"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/state_check_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ibeecon_start_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

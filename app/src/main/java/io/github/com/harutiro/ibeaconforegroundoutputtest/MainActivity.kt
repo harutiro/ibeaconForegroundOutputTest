@@ -1,11 +1,13 @@
 package io.github.com.harutiro.ibeaconforegroundoutputtest
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import io.github.com.harutiro.ibeaconforegroundoutputtest.databinding.ActivityMainBinding
+import io.github.com.harutiro.ibeaconforegroundoutputtest.service.ForegroundIbeaconOutputServise
 import pub.devrel.easypermissions.EasyPermissions
 
 class MainActivity : AppCompatActivity() {
@@ -45,6 +47,25 @@ class MainActivity : AppCompatActivity() {
             // パーミッションが許可されていない時の処理
             EasyPermissions.requestPermissions(this, "パーミッションに関する説明", PERMISSION_REQUEST_CODE, *permissions)
         }
+
+        binding.ibeeconStartButton.setOnClickListener {
+            val intent = Intent(this, ForegroundIbeaconOutputServise::class.java)
+            intent.putExtra("UUID",binding.uuidEditTextbox.text.toString())
+            intent.putExtra("MAJOR",binding.majarEditTextbox.text.toString())
+            intent.putExtra("MINOR",binding.minorEditTextbox.text.toString())
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && EasyPermissions.hasPermissions(this, *permissions)) {
+                startForegroundService(intent)
+            }
+        }
+
+        binding.ibeaconStopButton.setOnClickListener {
+            val targetIntent = Intent(this, ForegroundIbeaconOutputServise::class.java)
+            stopService(targetIntent)
+        }
+
+
+
 
 
 
